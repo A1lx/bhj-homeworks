@@ -7,7 +7,7 @@ for (let i = 0; i < arrMenuLinks.length; i++) {
   const item = link.closest('.menu__item');
   const subMenu = item.querySelector('.menu_sub');
   link.onclick = function () {
-    if (subMenu.className.includes("menu_active")) {
+    if (subMenu && subMenu.className.includes("menu_active")) {
       subMenu.className = "menu menu_sub";
       return false;
     }
