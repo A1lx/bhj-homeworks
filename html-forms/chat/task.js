@@ -15,7 +15,7 @@ const botAnswers = [
 ];
 
 document.addEventListener('keydown', event => {
-  if (event.key === 'Enter' && chatWidgetInput.value !== '') {
+  if (event.key === 'Enter' && chatWidgetInput.value.trim() !== '') {
     messages.innerHTML += `
       <div class="message message_client">
       <div class="message__time">${new Date().toLocaleTimeString()}</div>
