@@ -10,14 +10,11 @@ function taskCreator() {
 
   input.value = '';
 
-  const closeButtons = Array.from(document.getElementsByClassName('task__remove'));
+  const closeButtons = document.querySelector('.task__remove');
 
-  closeButtons.forEach(element => {
-    element.addEventListener('click', event => {
-      target = event.target;
-      target.closest('.task').remove();
-    })
-});
+  closeButtons.addEventListener('click', event => {
+    event.target.closest('.task').remove();
+  })
 }
 
 button.addEventListener('click', event => {

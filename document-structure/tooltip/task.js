@@ -3,15 +3,21 @@ const div = document.createElement('div');
 
 div.className = 'tooltip';
 
-
 tooltips.forEach(element => {
-  element.addEventListener('click', (event) => {
+  element.addEventListener('click', event => {
     event.preventDefault();
 
-    div.classList.toggle('tooltip_active');
-    div.innerText = element.title;
-    const { bottom, left } = element.getBoundingClientRect();
-    div.style = `left: ${left}px; top: ${bottom}px`;
-    element.insertAdjacentElement('afterEnd', div);
+    target = event.target;
+
+    if (target.title === div.innerText) {
+      div.classList.toggle('tooltip_active');
+      return;
+    } else {
+      div.innerText = target.title;
+      const { bottom, left } = target.getBoundingClientRect();
+      div.style = `left: ${left}px; top: ${bottom}px`;
+      target.insertAdjacentElement('afterEnd', div);
+      div.classList.add('tooltip_active');
+    }
   })
 })
