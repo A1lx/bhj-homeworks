@@ -20,17 +20,9 @@ function taskCreator() {
 });
 }
 
-document.addEventListener('keydown', event => {
-  if (event.key === 'Enter' && input.value.trim() !== '') {
-    event.preventDefault();
-    taskCreator();
-  }
-});
-
 button.addEventListener('click', event => {
+  event.preventDefault();
   if (input.value.trim() !== '') {
-    event.preventDefault();
     taskCreator();
   }
 });
-

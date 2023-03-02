@@ -24,14 +24,12 @@ productAddButtons.forEach(element => {
 
     const productsId = Array.from(cartProducts.children).find(i => i.getAttribute('data-id') === id);
 
-    // console.log(productsId) возвращает <div class="cart__product" data-id="1"> и т.д.
-
     if (!productsId) {
       cartProducts.insertAdjacentHTML(
         'beforeEnd',
         `<div class="cart__product" data-id="${id}"><img class="cart__product-image" src=${srcImage}><div class="cart__product-count">${count.textContent}</div></div>`);
     } else {
-      const cartProductCount = productsId.querySelector('.cart__product-count'); //счетчик товара в корзине
+      const cartProductCount = productsId.querySelector('.cart__product-count'); 
       cartProductCount.textContent = +cartProductCount.textContent + +count.textContent;
     }
   })
